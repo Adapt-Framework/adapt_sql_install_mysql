@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adapt_framework>
+    <bundle>
+        <label>SQL Install MySQL</label>
+        <name>sql_install_mysql</name>
+        <type>extension</type>
+        <version>1.0.0</version>
+        <namespace>\adapt\sql_install_mysql</namespace>
+        <version_status>release</version_status>
+        <availability>public</availability>
+        <description>MySQL specific bundle for handling install scripts</description>
+        <copyright>Adapt framework</copyright>
+        <license>MIT</license>
+        <depends_on>
+            <bundle>
+                <name>adapt</name>
+                <version>2.0</version>
+            </bundle>
+            <bundle>
+                <name>sql_install</name>
+                <version>1</version>
+            </bundle>
+        </depends_on>
+    </bundle>
+</adapt_framework>
