@@ -21,5 +21,13 @@
                 <version>1</version>
             </bundle>
         </depends_on>
+        <settings>
+            <catagory name="MySql Install Settings">
+                <setting>
+                    <name>mysql_bin</name>
+                    <default_value>mysql</default_value>
+                </setting>
+            </catagory>
+        </settings>
     </bundle>
 </adapt_framework>
