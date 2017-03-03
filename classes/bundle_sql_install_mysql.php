@@ -89,8 +89,12 @@ class bundle_sql_install_mysql extends \adapt\bundle
                 $files = glob($this->_mysql_dirs[$bundle->name] . '/*.sql');
                 foreach ($files as $file) {
                     $sql_script = new model_sql_script();
+                    $mysql_bin = 'mysql';
+                    if(!is_null($this->setting('mysql_bin'))) {
+                        $mysql_bin = $this->setting('mysql_bin');
+                    }
                     if ($sql_script->safe_to_run($bundle->name, $file, self::DIALECT)) {
-                        $cmd = $this->setting('mysql_bin') . ' -h ' . $this->data_source->get_host(true)['host'] . ' -u ' . $this->data_source->get_host(true)['username'] . ' -p' . $this->data_source->get_host(true)['password'] . ' -D ' . $this->data_source->get_host(true)['schema'] . ' --default-character-set=' . $this->setting('mysql.default_character_set') . ' < ' . $file;
+                        $cmd = $mysql_bin . ' -h ' . $this->data_source->get_host(true)['host'] . ' -u ' . $this->data_source->get_host(true)['username'] . ' -p' . $this->data_source->get_host(true)['password'] . ' -D ' . $this->data_source->get_host(true)['schema'] . ' --default-character-set=' . $this->setting('mysql.default_character_set') . ' < ' . $file;
                         exec($cmd);
                         $sql_script->ran_script($bundle->name, $bundle->version, $file, self::DIALECT);
                     }
