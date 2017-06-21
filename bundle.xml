@@ -18,7 +18,7 @@
             </bundle>
             <bundle>
                 <name>sql_install</name>
-                <version>1</version>
+                <version>1.0</version>
             </bundle>
         </depends_on>
         <settings>
